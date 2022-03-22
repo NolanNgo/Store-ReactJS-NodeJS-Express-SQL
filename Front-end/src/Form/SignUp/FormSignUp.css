@@ -1,0 +1,138 @@
+.sign-up-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: #f5f5f7;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.sign-up-container .title-sign-up {
+  text-align: center;
+  border-bottom: 1px solid silver;
+}
+.sign-up-container .sign-up-form {
+  padding: 0 40px;
+  box-sizing: border-box;
+  margin-top: 28px;
+}
+.sign-up-form .field {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 15px 5px;
+}
+.sign-up-form .field input {
+  width: 80%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.sign-up-form .field label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.sign-up-form .field span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #2691d9;
+}
+
+.sign-up-form .field.wrong-password span::before,
+.sign-up-form .field.wrong-email span::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #a02f0c;
+}
+
+.sign-up-form .field.wrong-password input:focus ~ label,
+.sign-up-form .field.wrong-password input ~ label,
+.sign-up-form .field.wrong-email input:focus ~ label,
+.sign-up-form .field.wrong-email input ~ label {
+  top: -5px;
+  color: #a02f0c;
+}
+
+
+.sign-up-form .field input:focus ~ label,
+.sign-up-form .field input:valid ~ label {
+  top: -5px;
+  color: #2691d9;
+}
+.forget_pass {
+  margin: -5px 0 20px 5px;
+  color: #a6a6a6;
+  cursor: pointer;
+}
+.forget_pass:hover {
+  text-decoration: underline;
+}
+.sign-up-form .btn_submit {
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background: linear-gradient(to right, #78ffd6, #007991);
+  border-radius: 25px;
+  font-size: 18px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  margin-top: 5px;
+}
+.sign-up-form .btn_submit:hover {
+  border-color: #007991;
+  transition: 0.5s;
+}
+.signup-link {
+  margin: 30px;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.signup-link a {
+  color: #2691d9;
+  text-decoration: none;
+}
+.signup-link a:hover {
+  text-decoration: underline;
+}
+.row-password , .row-name-phone{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+}
+.field-password-1,
+.field-password-2,
+.field-phone,
+.field-name {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  margin: 1px;
+}
+.sign-up-form .field input::-webkit-outer-spin-button,
+.sign-up-form .field input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
