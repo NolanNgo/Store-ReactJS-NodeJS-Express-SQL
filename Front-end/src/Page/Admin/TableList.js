@@ -2,8 +2,9 @@ import TableProduct from "./TableProduct";
 import TableUser  from "./TableUser";
 import TableOrder from "./TableOrder";
 import AddProduct from "./formAddProduct/AddProduct";
-function TableList(props)
+const  TableList=(props)=>
 {
+    // console.log(result);
     return(
         <div className="content-2">
             <AddProduct/>

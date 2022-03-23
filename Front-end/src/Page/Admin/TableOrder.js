@@ -7,7 +7,8 @@ import {
 import { myPost, myGetWithToken } from "../../Global/myRequest";
 // import { useNavigate } from "react-router-dom";
 import { toastSuccess, toastError } from "../../Global/myToast";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AdminContext } from "../../Context/AdminContext";
 const Status = (props) => {
   switch (props.indexStatus) {
     case 0:
@@ -31,6 +32,7 @@ const Status = (props) => {
 
 const TableOrder = (props) => {
   const [listOrder, setListOrder] = useState([]);
+  const { setResult2 } = useContext(AdminContext);
 
   useEffect(() => {
     const formatData = (response) => {
@@ -40,7 +42,7 @@ const TableOrder = (props) => {
         r[a.orderId].push(a);
         return r;
       }, Object.create(null));
-      let result1 = Object.keys(result).map((key) => [ key , result[key]]);
+      let result1 = Object.keys(result).map((key) => [key, result[key]]);
       // console.log(resultReduce)
       setListOrder(result1);
     };
@@ -52,6 +54,7 @@ const TableOrder = (props) => {
       formatData(await myGetWithToken("Orders/all", headers));
     };
     getUset();
+    setResult2(listOrder && listOrder.length > 0 ? listOrder.length : 0);
   });
 
   const ConfirmOrder = async (e, id, status, updateState) => {
@@ -226,7 +229,6 @@ const TableOrder = (props) => {
           );
         })}
     </div>
-
   );
 };
 export default TableOrder;

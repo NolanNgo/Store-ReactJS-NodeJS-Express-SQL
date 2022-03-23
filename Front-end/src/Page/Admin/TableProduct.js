@@ -2,18 +2,22 @@
 import EditProduct from "./formEditProduct/EditProduct";
 import { myDelete, myGet } from "../../Global/myRequest";
 import { toastSuccess, toastError } from "../../Global/myToast";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import {AdminContext} from "../../Context/AdminContext";
 
 function TableProduct(props) {
   const [listProduct, setListProduct] = useState([]);
+  const {setResult} = useContext(AdminContext);
   // const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     const getProduct = async ()=>
     {
       setListProduct(await myGet("Product"));
       localStorage.setItem("productID", `PR${(listProduct && listProduct.data && listProduct.data.length ? listProduct.data.length : 0) + 1}`);
+      setResult(listProduct && listProduct.data && listProduct.data.length ? listProduct.data.length : 0);
+      // console.log(result);
 
     }
     getProduct();
